@@ -1,6 +1,6 @@
 import firebase from "firebase/app";
-import "firebase/firestore";
 import "firebase/auth";
+import "firebase/firestore";
 
 const config = {
   apiKey: "AIzaSyBn3hJWE-dHN2lbVdLtPrb9m8FzSwybmds",
@@ -10,7 +10,7 @@ const config = {
   storageBucket: "crwn-db-1c904.appspot.com",
   messagingSenderId: "617094721260",
   appId: "1:617094721260:web:4772a6f460c1be35c63fc9",
-  measurementId: "G-MNMGCLYDJQ"
+  measurementId: "G-MNMGCLYDJQ",
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -29,7 +29,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         displayName,
         email,
         createdAt,
-        ...additionalData
+        ...additionalData,
       });
     } catch (error) {
       console.log("error creating user", error.message);
@@ -37,6 +37,23 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   }
 
   return userRef;
+};
+
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = firestore.collection(collectionKey);
+
+  console.log("collectionRef", collectionRef);
+
+  const batch = firestore.batch();
+  objectsToAdd.forEach((obj) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, obj);
+  });
+
+  return await batch.commit();
 };
 
 firebase.initializeApp(config);
