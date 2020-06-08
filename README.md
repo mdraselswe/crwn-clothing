@@ -1,19 +1,22 @@
 
-### Crwn Clothing
+### Crwn Clothing (Complete e-commerce platform)
 
 # Live
 Demo https://crwn-clothing-rasel.herokuapp.com/
 # Built With
 
 * [React](https://reactjs.org/)
-* [Redux](https://redux.js.org/)
-* [Stipe API](https://stripe.com/docs)
-
+* [Redux](https://redux.js.org/) 
+* [React Router](https://reacttraining.com/react-router/) 
+* [Stipe API](https://stripe.com/docs) 
+ 
 # What I have done
 
-* It's a complete e-commerce platform.
-* You can add to cart.
-* You can chekout your product.
+* Sign in with Email & Google
+* Sign up with Email & Google
+* Product category
+* Add to cart
+* Checkout product
 
 # How to use
 * >$ git clone git@github.com:Rasel141/crwn-clothing.git
